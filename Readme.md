@@ -1,6 +1,7 @@
 # 简介
 
 - 原始数据集来源：https://engineering.case.edu/bearingdatacenter/download-data-file
+- 数据集说明：https://www.cnblogs.com/gshang/p/10712809.html
 - 数据集科普文档：http://152.67.113.27/articles/Python%E5%87%AF%E6%96%AF%E8%A5%BF%E5%82%A8%E5%A4%A7%E5%AD%A6%EF%BC%88CWRU%EF%BC%89%E8%BD%B4%E6%89%BF%E6%95%B0%E6%8D%AE%E8%A7%A3%E8%AF%BB%E4%B8%8E%E5%88%86%E7%B1%BB%E5%A4%84%E7%90%86_cwru+bearing+data_10482939_csdn.html
 
 基于 48K 数据进行训练与测试，进行 10 分类，实际使用的是 kaggle 的数据集：https://www.kaggle.com/datasets/brjapon/cwru-bearing-datasets
@@ -45,4 +46,22 @@ pip install tsai
 
 ```
 python rescnn.py
+```
+
+## vgg 模型
+
+首先，效果很差，主要是图片制作的问题，大约 0.0265...我认为是图片没制作好。参考 http://152.67.113.27/articles/Python%E5%87%AF%E6%96%AF%E8%A5%BF%E5%82%A8%E5%A4%A7%E5%AD%A6%EF%BC%88CWRU%EF%BC%89%E8%BD%B4%E6%89%BF%E6%95%B0%E6%8D%AE%E8%A7%A3%E8%AF%BB%E4%B8%8E%E5%88%86%E7%B1%BB%E5%A4%84%E7%90%86_cwru+bearing+data_10482939_csdn.html
+
+```
+# 制作图片（因为已经制作完成，所以其实无需执行）
+cd vgg/
+pip install PyWavelets -i https://mirror.baidu.com/pypi/simple 
+python build_image.py
+```
+
+执行训练：
+```
+# 注意，没有 GPU 将训练的很慢
+cd vgg/
+python vgg.py
 ```
